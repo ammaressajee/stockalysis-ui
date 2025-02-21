@@ -16,18 +16,19 @@
 }
 
 .logo-image {
+    margin-top:10px;
     border-radius: 20px;
     padding: 15px;
 
     //margin: 25px;
-    background-color: white;
+    //background-color: rgba(255, 255, 255, 0.541);
     display: flex;
 
     width: fit-content;
     /* or a specific width if preferred */
-    box-shadow: inset 0 0px 12px 10px rgba(0, 0, 0, 0.4),
+    //box-shadow: inset 0 0px 12px 10px rgba(0, 0, 0, 0.4),
         /* inner shadow */
-        0 0 10px rgba(0, 0, 0, 0.5);
+       // 0 0 10px rgba(0, 0, 0, 0.5);
     /* outer shadow */
     transition: box-shadow 0.3s ease;
     /* smooth transition */

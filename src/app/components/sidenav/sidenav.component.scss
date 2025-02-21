@@ -153,31 +153,14 @@
   font-weight: 500;
 }
 
-.logo-image {
-  border-radius: 20px;
+.logo-image img {
+  max-width: 250px;
+  /* Won't exceed this width */
+  width: auto;
+  /* Shrinks when needed */
+  height: auto;
+  margin-left: -20px;
 
-  width: 20%;
-  //margin-bottom: 30px;
-  background-color: #dfdbdbd5;
-  margin-top: 40px;
-  padding: 15px;
-  display: flex;
-  justify-content: center;
-  width: fit-content;
-  /* or a specific width if preferred */
-  box-shadow: inset 0 0px 12px 10px rgba(0, 0, 0, 0.4),
-    /* inner shadow */
-    0 0 10px rgba(0, 0, 0, 0.5);
-  /* outer shadow */
-  transition: box-shadow 0.3s ease;
-  /* smooth transition */
-}
-
-.logo-image:hover {
-  box-shadow: inset 0 0px 16px 10px rgba(0, 0, 0, 0.5),
-    /* inner shadow on hover */
-    0 0 10px rgba(199, 198, 198, 0.4);
-  /* outer shadow on hover */
 }
 
 .title-overlay {
@@ -194,8 +177,11 @@
 
 }
 
-.dropdown-menu{
+.dropdown-menu {
   background-color: rgba(189, 184, 184, 0.966);
+  z-index: 1050 !important;
+  /* Ensure dropdown appears above carousel */
+
 }
 
 /* Responsive layout for smaller screen height */
@@ -221,7 +207,8 @@
     margin-top: 5px;
   }
 
-  .navbar-nav, .nav-text {
+  .navbar-nav,
+  .nav-text {
     margin-top: 20px;
   }
 }

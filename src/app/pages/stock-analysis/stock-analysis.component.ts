@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { StockAnalysisService } from '../../../services/stock-analysis.service';
+import { StockAnalysisService } from '../../services/stock-analysis.service';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from '@auth0/auth0-angular';
 import { CommonModule } from '@angular/common';
