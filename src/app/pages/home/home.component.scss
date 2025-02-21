@@ -1,0 +1,187 @@
+/*
+Fade content bs-carousel with hero headers
+Code snippet by maridlcrmn (Follow me on Twitter @maridlcrmn) for Bootsnipp.com
+Image credits: unsplash.com
+*/
+
+/********************************/
+/*       Fade Bs-carousel       */
+/********************************/
+.fade-carousel {
+    position: relative;
+    height: 94vh;
+}
+
+.fade-carousel .carousel-inner .item {
+    height: 94vh;
+}
+
+.fade-carousel .carousel-indicators>li {
+    margin: 0 2px;
+    background-color: #f39c12;
+    border-color: #f39c12;
+    opacity: .7;
+}
+
+.fade-carousel .carousel-indicators>li.active {
+    width: 10px;
+    height: 10px;
+    opacity: 1;
+}
+
+/********************************/
+/*          Hero Headers        */
+/********************************/
+.hero {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 3;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, .75);
+    -webkit-transform: translate3d(-50%, -50%, 0);
+    -moz-transform: translate3d(-50%, -50%, 0);
+    -ms-transform: translate3d(-50%, -50%, 0);
+    -o-transform: translate3d(-50%, -50%, 0);
+    transform: translate3d(-50%, -50%, 0);
+}
+
+.hero h1 {
+    font-size: 6em;
+    font-weight: bold;
+    font-family: 'Stimpson', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/********************************/
+/*            Overlay           */
+/********************************/
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background-color: #080d15;
+    opacity: .5;
+}
+
+/********************************/
+/*       Slides backgrounds     */
+/********************************/
+.fade-carousel .slides .slide-1 {
+    height: 100vh;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.fade-carousel .slides .slide-1 {
+    background-image: url('../../../assets/images/conifers.jpg');
+}
+
+.hero-btn {
+    margin: 12px;
+    width: auto;
+    border-radius: 5px;
+    background-color: rgba(23, 125, 139, 0.605);
+    color: rgba(255, 250, 250, 0.676);
+}
+.hero-btn:hover {
+    background-color: #18794dc2;
+    color: white;
+}
+
+.centered-row {
+    display: flex;
+    justify-content: center;
+    /* Center items horizontally */
+    align-items: center;
+    /* Center items vertically */
+    margin: 0 auto;
+    /* Center the row itself within its container */
+}
+
+.logo-image {
+    border-radius: 20px;
+
+    width: 20%;
+    padding: 15px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    background-color: rgba(255, 255, 255, 0.817);
+    display: flex;
+    justify-content: center;
+    width: fit-content;
+    /* or a specific width if preferred */
+    box-shadow: inset 0 0px 12px 10px rgba(0, 0, 0, 0.4),
+        /* inner shadow */
+        0 0 10px rgba(0, 0, 0, 0.5);
+    /* outer shadow */
+    transition: box-shadow 0.3s ease;
+    /* smooth transition */
+}
+
+.logo-image:hover {
+    box-shadow: inset 0 0px 16px 10px rgba(0, 0, 0, 0.5),
+        /* inner shadow on hover */
+        0 0 10px rgba(199, 198, 198, 0.4);
+    /* outer shadow on hover */
+}
+
+/********************************/
+/*          Media Queries       */
+/********************************/
+@media screen and (min-width: 980px) {
+    .hero {
+        width: 980px;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .hero h1 {
+        font-size: 4em;
+    }
+}
+
+.hero-title {
+    font-family: 'Stimpson';
+    color: rgb(156, 154, 154);
+}
+
+/* Adjust button styles at smaller screen heights */
+@media (max-width: 950px) {
+    .hero-btn {
+        padding: 4px 8px;
+        /* Reduce padding for smaller viewports */
+        //font-size: 12px;   /* Adjust font size as needed */
+    }
+
+    .logo-image img {
+        width: 100px;
+    }
+
+    .hero-title {
+        font-size: large;
+    }
+}
+
+/* Adjust button styles at smaller screen heights */
+@media (max-height: 575px) {
+
+
+    .logo-image img {
+        width: 70px;
+    }
+}
+
+/* Adjust button styles at smaller screen heights */
+@media (max-height: 475px) and (max-width: 830px) {
+
+
+    .logo-image {
+        display:none;
+    }
+}

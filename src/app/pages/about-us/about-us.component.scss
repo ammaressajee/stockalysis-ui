@@ -1,0 +1,198 @@
+.bgs-light {
+    background-color: rgba(30, 146, 75, 0.936);
+    background-image: url('/assets/images/conifers.jpg');
+    /* Replace with your image path */
+    background-size: cover;
+    /* Ensures the image covers the entire div */
+    background-position: center;
+    /* Centers the image in the div */
+    background-repeat: no-repeat;
+    /* Prevents tiling of the image */
+    background-attachment: fixed;
+    /* Keeps the background fixed as the content scrolls (optional) */
+    padding: 5rem 0;
+    height: 220px;
+}
+
+/* Style for the title overlay */
+.title-overlay {
+    color: rgb(225, 222, 222);
+    font-size: 3rem;
+    /* Adjust size as needed */
+    font-weight: bold;
+    font-family: 'Stimpson', sans-serif;
+    text-align: center;
+    z-index: 1;
+}
+
+/* Responsive font size adjustments */
+@media (min-width: 768px) {
+    .title-overlay {
+        font-size: 3rem;
+        /* Adjust size as needed for medium and larger screens */
+    }
+}
+
+@media (min-width: 992px) {
+    .title-overlay {
+        font-size: 4rem;
+        /* Adjust size as needed for larger screens */
+    }
+}
+
+.centered-row {
+    display: flex;
+    justify-content: center;
+    /* Center items horizontally */
+    align-items: center;
+    /* Center items vertically */
+    margin: 0 auto;
+    /* Center the row itself within its container */
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.director-card {
+    width: auto;
+    min-width: 250px;
+    height: auto;
+    border-radius: 20px;
+    background: #eeeeee;
+    box-shadow: -20px -20px 60px #ffffff;
+    border: none;
+
+}
+
+.director-card img {
+    border-radius: 50%;
+    background: linear-gradient(145deg, #d6d6d6, #ffffff);
+    box-shadow: 20px 20px 60px #cacaca, -20px -20px 60px #ffffff;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 25px;
+    margin-top: 10px;
+}
+
+
+.lower-pad {
+    margin-bottom: 30px;
+}
+
+.bs-card-pad {
+    margin-top: -8px;
+}
+
+.text-background::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Adds a dark overlay for better text readability */
+    z-index: 0;
+}
+
+.text-background h2,
+.text-background p {
+    position: relative;
+    z-index: 1;
+    /* Ensures text is above the overlay */
+}
+
+.circle-image {
+    width: 350px;
+    /* Adjust the percentage as needed */
+    aspect-ratio: 1 / 1;
+    /* Maintains a square aspect ratio */
+    border-radius: 30%;
+    object-fit: cover;
+    transform: scale(0.8);
+    /* Scales down the image to zoom out slightly */
+}
+
+.profile-text {
+    text-shadow: 1px 1px 4px rgba(163, 153, 153, 0.6);
+    font-weight: semibold;
+}
+
+
+.card-policies {
+    width: 300px;
+    height: 400px;
+    background-image: url('../../../assets/images/conifers.jpg');
+    /* Point to your image */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    margin: 10px;
+}
+
+.card-content {
+    background: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+    padding: 20px;
+    border-radius: 8px;
+    display: flex; /* Use flexbox for alignment */
+    flex-direction: column; /* Stack items vertically */
+    justify-content: flex-start; /* Align content to the top */
+    height: 100%; /* Ensures the content takes up the full height of the parent */
+    box-sizing: border-box; /* Includes padding in height calculations */
+}
+
+.card-title {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 20px;
+    white-space: nowrap; /* Prevents text from wrapping */
+}
+
+.card-title::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    /* Adjust as needed */
+    left: 0;
+    width: 50%;
+    /* Half the length of the text */
+    height: 4px;
+    /* Thickness of the underline */
+    background-color: #57be8273;
+    /* Color of the underline */
+}
+
+.title {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.title::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    /* Adjust as needed */
+    left: 0;
+    width: 35%;
+    /* Half the length of the text */
+    height: 4px;
+    /* Thickness of the underline */
+    background-color: #24a74f;
+    /* Color of the underline */
+}

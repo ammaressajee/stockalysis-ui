@@ -1,0 +1,81 @@
+<nav class="navbar navbar-dark navbar-expand-lg shadow nav">
+    <div class="container-fluid" style="margin-left: 20px;">
+        <a class="navbar-brand logo" routerLink="/home">
+            <img src="assets/images/essajee-logo.jpg" width="auto" height="55" class="logo-img align-text-top">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" routerLink="/home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"
+                        (click)="toggleSideNav()">Service Menu</a>
+                </li>
+
+                <li *ngIf="(authService.isAuthenticated$ | async) === true"  class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Admin
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" routerLink="/admin/message-dashboard" routerLinkActive="active">Message Dashboard</a></li>
+                      <li><a class="dropdown-item" routerLink="/admin/stock-analysis">Stock Analysis</a></li>
+                      <li><a class="dropdown-item" routerLink="/admin/settings">Settings</a></li>
+                    </ul>
+                  </li>
+                  
+                <li *ngIf="(authService.isAuthenticated$ | async) === false"><a data-bs-dismiss="offcanvas"
+                        (click)="login()" class="nav-link login">Sign In</a></li>
+
+                <li *ngIf="(authService.isAuthenticated$ | async) === true"><a data-bs-dismiss="offcanvas"
+                        (click)="logout()" class="nav-link logout">Sign Out</a></li>
+
+            </ul>
+            <div *ngIf="(authService.isAuthenticated$ | async) === true" style="display: flex; align-items: center;">
+                <p style="margin-right: 10px; margin-top:15px; color: rgb(196, 190, 190)">Welcome, {{ (user$ |
+                    async)?.name }}
+                </p>
+                <img [src]="(user$ | async)?.picture" alt="User Avatar" width="40">
+            </div>
+            <h6 *ngIf="(authService.isAuthenticated$ | async) === false" class="nav-text fw-light fs-6">Essajee Carimjee
+                Insurance Brokers (Pvt) Ltd.</h6>
+        </div>
+    </div>
+</nav>
+
+<div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
+    aria-labelledby="offcanvasWithBothOptionsLabel">
+
+    <div class="offcanvas-header">
+        <button type="button" class="btn-close btn-close-custom" data-bs-dismiss="offcanvas"
+            aria-label="Close"></button>
+        <div class="logo-image">
+            <img src="../../../assets/images/ecib-logo-nobg.png" alt="Example Image">
+        </div>
+    </div>
+
+    <div class="offcanvas-body d-flex flex-column">
+        <h1 class="fw-light title-overlay">Essajee Carimjee</h1>
+        <h6 class="fs-3 fw-light title-overlay" style="color:rgba(166, 166, 166, 0.724)">Insurance Brokers (Pvt) Ltd
+        </h6>
+        <ul class="list-unstyled sidenav-links">
+            <li><a routerLink="/home" routerLinkActive="active" data-bs-dismiss="offcanvas"
+                    class="sidenav-link">Home</a></li>
+            <li><a routerLink="/about-us" routerLinkActive="active" data-bs-dismiss="offcanvas"
+                    class="sidenav-link">About Us</a></li>
+            <li><a routerLink="/what-we-offer" routerLinkActive="active" data-bs-dismiss="offcanvas"
+                    class="sidenav-link">What We Offer</a></li>
+            <li><a routerLink="/why-choose-us" routerLinkActive="active" data-bs-dismiss="offcanvas"
+                    class="sidenav-link">Why Choose Us?</a></li>
+            <li><a routerLink="/insurance" routerLinkActive="active" data-bs-dismiss="offcanvas"
+                    class="sidenav-link">Insurance Products</a></li>
+            <li><a routerLink="/contact-us" routerLinkActive="active" data-bs-dismiss="offcanvas"
+                    class="sidenav-link">Contact Us</a></li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+.message-card {
+    margin: 20px;
+    background-color: rgb(228, 227, 227);
+    padding: 35px;
+    border-radius: 8px;
+    word-wrap: break-word;
+    /* Ensures long words break */
+    overflow-wrap: break-word;
+    /* Prevents text overflow */
+    max-width: 100%;
+    /* Ensures the card does not exceed the parent container */
+    white-space: normal;
+    /* Allows wrapping */
+}
+
+
+.card-title {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 20px;
+    white-space: nowrap; /* Prevents text from wrapping */
+}
+
+.card-title::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    /* Adjust as needed */
+    left: 0;
+    width: 10%;
+    /* Half the length of the text */
+    height: 4px;
+    /* Thickness of the underline */
+    background-color: #2db9789f;
+    /* Color of the underline */
+}

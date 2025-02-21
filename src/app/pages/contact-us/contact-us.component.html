@@ -1,0 +1,100 @@
+<!-- Breadcrumb Block -->
+
+<div class="bgs-light py-5">
+  <div class="container">
+    <div class="d-flex justify-content-between">
+      <h1 class="fw-light title">Contact us</h1>
+    </div>
+  </div>
+</div>
+
+
+<section class="body">
+  <div class=" card-pad">
+    <h2>Leave a message below:
+      <hr>
+    </h2>
+    <div class="row g-5">
+      <!-- Contact Form Block -->
+      <div class="col-xl-6 card shadow-sm" style="padding:25px;">
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+          <div class="row g-4">
+            <div class="col-6 mb-3">
+              <label for="fname" class="form-label">First Name</label>
+              <input type="text" class="form-control" id="fname" formControlName="fname" placeholder="John">
+            </div>
+            <div class="col-6 mb-3">
+              <label for="lname" class="form-label">Last Name</label>
+              <input type="text" class="form-control" id="lname" formControlName="lname" placeholder="Doe">
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" formControlName="email" placeholder="name@example.com">
+          </div>
+          <div class="mb-3">
+            <label for="contact_number" class="form-label">Phone</label>
+            <input type="tel" class="form-control" id="contact_number" formControlName="contact_number" placeholder="0777123123">
+          </div>
+          <div class="mb-3">
+            <label for="message" class="form-label">Message</label>
+            <textarea class="form-control" id="message" formControlName="message" rows="4" placeholder="Enter your message here"></textarea>
+          </div>
+          
+          <button type="submit" [disabled]="contactForm.invalid" class="btn btn-dark">Send Message</button>
+        </form>
+      </div>
+
+      <!-- Contact Information Block -->
+      <div class="col-xl-6">
+        <div class="row row-cols-md-2 g-4">
+          <!-- Email Block -->
+          <div class="col" data-aos="fade-up" data-aos-delay="200">
+            <div class="card p-3 h-100 item">
+              <div class="d-flex align-items-center">
+                <i class="fa-solid fa-envelope h3 pe-2"></i>
+                <span class="h5">Email</span>
+              </div>
+              <span>imran&#64;essajee.com</span>
+            </div>
+          </div>
+
+          <!-- Phone Block -->
+          <div class="col" data-aos="fade-up" data-aos-delay="400">
+            <div class="card p-3 h-100 item">
+              <div class="d-flex align-items-center">
+                <i class="fa-solid fa-phone h3 pe-2"></i>
+                <span class="h5">Phone</span>
+              </div>
+              <span>+0123456789, +9876543210</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Office Location Block -->
+        <div class="row mt-4">
+          <div class="col" data-aos="fade-up" data-aos-delay="600">
+            <div class="card p-3 item">
+              <div class="d-flex align-items-center">
+                <i class="fa-solid fa-location-pin h3 pe-2"></i>
+                <span class="h5">Office location</span>
+              </div>
+              <span>No. 80/1 Layards Road, Colombo - 05 P.O. Box 6, Colombo, Sri Lanka</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="aos-item" data-aos="fade-up" data-aos-delay="800">
+          <div class="mt-4 w-100 aos-item__inner">
+            <iframe class="shadow" style="border: 1px solid #6b6a6a5e;" width="100%" height="345" frameborder="0"
+              scrolling="no" marginheight="0" marginwidth="0"
+              src="https://maps.google.com/maps?width=100%25&height=300&hl=en&q=Essajee+Carimjee+Insurance+Brokers&output=embed"><a
+                href="https://www.maps.ie/distance-area-calculator.html">measure acres/hectares on map</a></iframe>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</section>

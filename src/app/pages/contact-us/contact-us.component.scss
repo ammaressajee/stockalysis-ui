@@ -1,0 +1,48 @@
+.bgs-light {
+    background-image: url('/assets/images/conifers.jpg');
+    /* Replace with your image path */
+    background-size: cover;
+    /* Ensures the image covers the entire div */
+    background-position: center;
+    /* Centers the image in the div */
+    background-repeat: no-repeat;
+    /* Prevents tiling of the image */
+    background-attachment: fixed;
+    /* Keeps the background fixed as the content scrolls (optional) */
+    padding: 5rem 0;
+    height: 220px;
+}
+
+.title {
+    font-family: 'Stimpson', sans-serif;
+    color: rgb(227, 218, 218);
+}
+
+.item {
+    border-radius: 15px;
+    /* Adjust the value for more or less rounding */
+    background-color: #b6ebbd5a;
+    /* Light background color */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
+    /* Shadow */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    /* Smooth transition on hover */
+}
+
+.item:hover {
+    /* Slight lift effect on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    /* Darker shadow on hover */
+}
+
+.card-pad {
+    //margin: 60px;
+    margin-top: 0px;
+    padding: 40px;
+    top: -50px;
+    background-color: rgb(230, 230, 230);
+}
+
+.body {
+    //padding-bottom: 20px;
+}

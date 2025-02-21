@@ -1,0 +1,181 @@
+<section class="py-5">
+    <div *ngIf="isAuthenticated" class="container">
+        <div class="row justify-content-center text-center mb-4 mb-md-5">
+            <div class="col-xl-9 col-xxl-8">
+
+                <h2 class="display-5 fw-bold">Stock Analysis</h2>
+
+                <p class="lead">Type in a stock name to get real time analysis on whether to buy/sell/pass. i.e. 'AAPL'
+                    to lookup information on 'Apple' stocks.</p>
+                <input #inputRef class="form-control" type="text" placeholder="Enter Stock Ticker" />
+                <div *ngIf="errorMessage" class="error" style="color: brown;">{{ errorMessage }}</div><br>
+                <div *ngIf="errorMessage2 != ''" class="error" style="color: brown;">{{ errorMessage2 }}. Try again with
+                    a valid stock ticker.</div><br>
+                <button class="btn btn-primary shadow" (click)="getStockAnalysis(inputRef.value)">Analyze</button>
+
+            </div>
+        </div>
+
+
+
+        <div class="stock-container">
+
+            <p>
+                <strong>Overview:</strong> This analysis evaluates key stock indicators to assess potential trading
+                opportunities.
+                It incorporates moving averages (SMA50, SMA200, EMA50, EMA200) to gauge short- and long-term trends,
+                utilizes RSI and MACD for momentum insights, examines Bollinger Bands and Fibonacci levels for
+                volatility and retracement patterns, and includes volume analysis to detect market interest. Support and
+                resistance levels help in identifying potential breakout or reversal points. A final decision is
+                provided based on the combined evaluation of these factors.
+            </p>
+
+
+            <div *ngIf="stockData">
+                <div *ngIf="stockData">
+                    <hr><br>
+                    <h3>Stock Analysis for {{ stockData.ticker }} - {{ stockData.full_name }}</h3>
+
+                    <p>
+                        <strong>Last Close Price:</strong> {{ stockData.last_close_price | number:'1.2-2' }}
+                        <br> <em>(The final price at which the stock traded in the last session. This is a crucial
+                            reference point for trend analysis, support/resistance levels, and price action
+                            strategies.)</em>
+                    </p>
+
+                    <p>
+                        <strong>SMA50 (50-day Simple Moving Average):</strong> {{ stockData.SMA50 | number:'1.2-2' }}
+                        <br> <em>(A widely used short-term trend indicator. If the stock is above this level, it
+                            suggests an uptrend; if below, it indicates potential weakness. Traders often watch for
+                            crossovers with longer-term averages for confirmation.)</em>
+                    </p>
+
+                    <p>
+                        <strong>SMA200 (200-day Simple Moving Average):</strong> {{ stockData.SMA200 | number:'1.2-2' }}
+                        <br> <em>(A key long-term trend indicator. If the stock price is above the SMA200, it reflects
+                            strong bullish sentiment; if below, it suggests long-term bearishness. The Golden Cross
+                            (SMA50 crossing above SMA200) is bullish, while the Death Cross (SMA50 crossing below
+                            SMA200) signals potential downtrend.)</em>
+                    </p>
+
+                    <p>
+                        <strong>EMA50 (50-day Exponential Moving Average):</strong> {{ stockData.EMA50 | number:'1.2-2'
+                        }}
+                        <br> <em>(A more reactive version of SMA50, giving greater weight to recent price changes. If
+                            the stock is above this level, it indicates a stronger short-term uptrend compared to
+                            SMA50.)</em>
+                    </p>
+
+                    <p>
+                        <strong>EMA200 (200-day Exponential Moving Average):</strong> {{ stockData.EMA200 |
+                        number:'1.2-2' }}
+                        <br> <em>(A long-term trend-following indicator that reacts more quickly to recent price
+                            changes. A crossover between EMA50 and EMA200 can confirm strengthening or weakening
+                            trends.)</em>
+                    </p>
+
+                    <p>
+                        <strong>RSI (Relative Strength Index):</strong> {{ stockData.RSI | number:'1.2-2' }}
+                        <br> <em>(A momentum indicator that measures the magnitude of price movements. A reading above
+                            70 suggests overbought conditions, potentially signaling a pullback, while a reading below
+                            30 suggests oversold conditions and a possible rebound. Readings between 40-60 indicate a
+                            neutral trend.)</em>
+                    </p>
+
+                    <p>
+                        <strong>MACD (Moving Average Convergence Divergence):</strong> {{ stockData.MACD |
+                        number:'1.2-2' }}
+                        <br> <strong>Signal Line:</strong> {{ stockData.Signal_Line | number:'1.2-2' }}
+                        <br> <em>(The MACD is a trend-following momentum indicator that helps identify bullish or
+                            bearish trends. When MACD crosses above the signal line, it suggests increasing bullish
+                            momentum; when below, it signals bearish momentum. A divergence between MACD and price
+                            movement can indicate a potential reversal.)</em>
+                    </p>
+
+                    <p>
+                        <strong>Bollinger Bands:</strong>
+                        <br> <strong>Upper Band:</strong> {{ stockData.Upper_Bollinger_Band | number:'1.2-2' }}
+                        <br> <strong>Lower Band:</strong> {{ stockData.Lower_Bollinger_Band | number:'1.2-2' }}
+                        <br> <em>(A volatility indicator that expands and contracts based on price movement. If the
+                            stock price nears the upper band, it may be overbought and due for a pullback; if near the
+                            lower band, it could be oversold and due for a rebound. Bollinger Band squeezes often
+                            precede strong price moves.)</em>
+                    </p>
+
+                    <p>
+                        <strong>Fibonacci Levels:</strong>
+                        <span *ngFor="let level of stockData.Fibonacci_Levels | keyvalue">
+                            <br> <strong>{{ level.key }}:</strong> {{ level.value }}
+                        </span>
+                        <br> <em>(Key retracement and extension levels based on historical price movements. These levels
+                            serve as potential support and resistance zones where price action may reverse or
+                            consolidate.)</em>
+                    </p>
+
+                    <p>
+                        <strong>Volume Analysis:</strong> {{ stockData.Volume | number:'1.0-0' }} shares
+                        <br> <strong>Volume Spike Detected:</strong> {{ stockData.Volume_Spike ? 'Yes' : 'No' }}
+                        <br> <em>(Trading volume reflects market interest. A volume spike with price movement can signal
+                            a strong new trend. High volume without significant price change suggests indecision. Watch
+                            for volume confirmation on breakouts and breakdowns.)</em>
+                    </p>
+
+                    <p><strong>Decision:</strong> {{ stockData.decision }}</p>
+                    <p><strong>Reason:</strong> {{ stockData.reason }}</p>
+
+                    <p>
+                        <strong>Final Considerations:</strong>
+                        <br> <em>(This analysis combines multiple technical indicators. A strong buy signal may occur
+                            when bullish indicators align, such as MACD crossover, RSI near 40, and price above key
+                            moving averages. Conversely, bearish alignment, like overbought RSI, MACD below signal line,
+                            and a price drop below moving averages, may indicate a sell signal. Always consider market
+                            context and risk management.)</em>
+                    </p>
+
+
+                </div>
+
+                <hr><br>
+                <h4>Analysis Log:</h4>
+                <ul>
+                    <li *ngFor="let log of stockData.log">{{ log }}</li>
+                </ul>
+                <br>
+
+                <input type="number" class="form-control" #inputRefPredictions placeholder="Enter a number" /><br>
+                <button class="btn btn-primary shadow"
+                    (click)="getStockPricePrediction(inputRefPredictions.value)">Predict Stock Prices</button>
+
+                <div *ngIf="stockPrices" class="container">
+                    <br>
+
+                    <h2>Stock Price Predictions</h2>
+                    <div class="overflow-x-auto p-4">
+                        <table class="w-full border border-black rounded-lg shadow-md">
+                            <thead class="bg-gray-200 text-black">
+                                <tr>
+                                    <th class="p-3 border border-black">Date</th>
+                                    <th class="p-3 border border-black">Predicted Closing Price ($)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let prediction of stockPrices"
+                                    class="border-b border-black hover:bg-gray-100 transition">
+                                    <td class="p-3 border border-black">{{ prediction.Date | date:'MM/dd/yyyy' }}</td>
+                                    <td class="p-3 border border-black font-semibold">{{ prediction.Predicted_Close |
+                                        number:'1.2-2' }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="!isAuthenticated" class="container">Access Denied, please login and try again
+    </div>
+
+</section>
