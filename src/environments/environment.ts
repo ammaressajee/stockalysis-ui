@@ -8,6 +8,7 @@ export const environment = {
     scope: 'openid profile email',
   },
   dev: {
-    API_URL: "http://127.0.0.1:5000"
+    //API_URL: "http://127.0.0.1:5000/"
+    API_URL: "https://stockalysis-service-production.up.railway.app/"
   },
 };
