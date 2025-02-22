@@ -14,8 +14,8 @@ export class StockAnalysisService {
 
   constructor(private http: HttpClient) { }
 
-  getStockAnalysis(ticker: string): Observable<any> {
-    return this.http.get<any[]>(`${this.getStockAnalysisUrl}${ticker}`);
+  getStockAnalysis(ticker: string, exchange: string): Observable<any> {
+    return this.http.get<any[]>(`${this.getStockAnalysisUrl}${ticker}&exchange=${exchange}`);
   }
 
   getStockPrediction(ticker: string, days: string): Observable<any> {

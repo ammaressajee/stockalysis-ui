@@ -7,11 +7,25 @@
 
                 <p class="lead">Type in a stock name to get real time analysis on whether to buy/sell/pass. i.e. 'AAPL'
                     to lookup information on 'Apple' stocks.</p>
+
+                <div class="dropdown">
+
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" (click)="selectExchange('US')">US Stock Market (via Yahoo Finance)</a></li>
+                        <li><a class="dropdown-item" (click)="selectExchange('CSE')">Colombo Stock Exchange</a></li>
+                    </ul>
+                </div>
+                <p>Current Stock Exchange: {{ selectedExchange }}</p>
                 <input #inputRef class="form-control" type="text" placeholder="Enter Stock Ticker" />
                 <div *ngIf="errorMessage" class="error" style="color: brown;">{{ errorMessage }}</div><br>
                 <div *ngIf="errorMessage2 != ''" class="error" style="color: brown;">{{ errorMessage2 }}. Try again with
                     a valid stock ticker.</div><br>
-                <button class="btn btn-primary shadow" (click)="getStockAnalysis(inputRef.value)">Analyze</button>
+                <button class="btn btn-primary dropdown-toggle" style="margin-right:30px;" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Select a Stock Exchange:
+                </button>
+                <button class="btn btn-success shadow"
+                    (click)="getStockAnalysis(inputRef.value, selectedExchange)">Analyze</button>
 
             </div>
         </div>

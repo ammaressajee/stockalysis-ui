@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ecib-ui": {
+    "stockalysis-ui": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/ecib-ui",
+            "outputPath": "dist/stockalysis-ui",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -80,10 +80,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "ecib-ui:build:production"
+              "buildTarget": "stockalysis-ui:build:production"
             },
             "development": {
-              "buildTarget": "ecib-ui:build:development"
+              "buildTarget": "stockalysis-ui:build:development"
             }
           },
           "defaultConfiguration": "development"

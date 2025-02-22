@@ -18,19 +18,24 @@ export class StockAnalysisComponent {
   stockData: any = null;
   errorMessage: string = '';
   errorMessage2: string = '';
-  stockPrices: any = null;
+  stockPrices: any = null;  
+  selectedExchange: string = 'US';
 
   constructor(private stockService: StockAnalysisService, private http: HttpClient, private authService: AuthService) {
   }
 
-  getStockAnalysis(ticker: string): void {
+  selectExchange(option: string) {
+    this.selectedExchange = option;
+  }
+
+  getStockAnalysis(ticker: string, exchange: string): void {
     this.ticker = ticker
     if (!ticker) {
       this.errorMessage = 'Please enter a valid stock ticker';
       return;
     }
     
-    this.stockService.getStockAnalysis(ticker).subscribe(
+    this.stockService.getStockAnalysis(ticker, exchange).subscribe(
       
       (data) => {
         this.errorMessage2 = '';
