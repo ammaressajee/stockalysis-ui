@@ -1,0 +1,49 @@
+.container {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.right-container {
+    background-color: rgba(22, 151, 119, 0.719);
+}
+
+.left-container {
+    background-color: rgba(32, 32, 27, 0.63);
+}
+
+.disclaimer {
+    text-align: center;
+    color: rgba(109, 5, 5, 0.808);
+    font-size: 12px;
+    margin-top: 60px;
+    width: 100%
+}
+
+.dropdown-toggle:hover{
+    color: rgb(73, 86, 97);
+}
+strong{
+    font-weight: 400;
+}
+em{
+    font-weight: 200;
+}
+@media (min-width: 600px) {
+    .container {
+        max-width: 80%;
+        /* Adjust width as needed */
+        margin: auto;
+        /* Centers the container */
+    }
+
+    /* Custom styles for small screens */
+}
+
+@media (min-width: 576px) {
+    .container {
+        margin-bottom: 30px;
+        margin-top: 30px;
+    }
+
+    /* Custom styles for small screens */
+}
