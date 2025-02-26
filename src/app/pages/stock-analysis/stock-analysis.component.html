@@ -25,7 +25,7 @@
                 <h4>Analysis Log:</h4>
                 <hr>
                 <ul>
-                    <li *ngFor="let log of stockData.log">{{ log }}</li>
+                    <li *ngFor="let log of stockData.log"> {{log}}</li>
                 </ul>
                 <br>
 
@@ -65,60 +65,13 @@
         </div>
 
         <!-- 2/3rd Width Column -->
-        <div class="col-md-8 right-container text-white p-3">
+        <div class="col-md-8 right-container text-white">
             <section class="py-5">
                 <div class="container">
-                    <div class="row justify-content-center text-center mb-4 mb-md-5">
-                        <div class="col-xl-9 col-xxl-8">
-
-                            <h2 class="display-5">Stock Analysis</h2>
-
-                            <p class="lead">Type in a stock name to get real time analysis on whether to buy/sell/pass.
-                                i.e. 'AAPL'
-                                to lookup information on 'Apple' stocks.</p><br>
-                            <div class="dropdown">
-
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" (click)="selectExchange('US')">US Stock Market (via
-                                            Yahoo
-                                            Finance)</a></li>
-                                    <li><a class="dropdown-item" (click)="selectExchange('CSE')">Colombo Stock
-                                            Exchange</a></li>
-                                </ul>
-                            </div>
-
-                            <input #inputRef class="form-control" type="text" placeholder="Enter Stock Ticker" />
-                            <p style="padding-top:5px;">Current Stock Exchange: {{ selectedExchange }}</p>
-                            <div *ngIf="errorMessage" class="error" style="color: brown;">{{ errorMessage }}<br></div>
-                            <div *ngIf="errorMessage2 != ''" class="error" style="color: brown;">{{ errorMessage2 }}.
-                                Try again with
-                                a valid stock ticker.</div><br>
-                            <button class="btn dropdown-toggle shadow" style="margin-right:30px; background-color: rgba(208, 212, 214, 0.897);" type="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Select a Stock Exchange
-                            </button>
-                            <button class="btn btn-success shadow" style="background-color: rgba(9, 77, 62, 0.685);"
-                                (click)="getStockAnalysis(inputRef.value, selectedExchange)">Analyze</button>
-
-                            <!-- Small Disclaimer -->
-                            <p class="text-center small disclaimer">
-                                *This app provides stock analysis and predictions for informational purposes only and
-                                does not constitute financial advice. No guarantees are made regarding accuracy,
-                                reliability, or future performance. Users assume full responsibility for their
-                                investment decisions. The developer is not liable for any financial losses, damages, or
-                                actions taken based on the app’s information.
-                            </p>
-
-                        </div>
-                    </div>
-
-
-
                     <div class="stock-container">
 
                         <div *ngIf="stockData">
                             <div *ngIf="stockData">
-                                <hr><br>
                                 <h3>Stock Analysis for {{ stockData.ticker }}</h3>
 
                                 <p>
@@ -214,7 +167,7 @@
                                 <p>
                                     <strong>Fibonacci Levels:</strong>
                                     <span *ngFor="let level of stockData.Fibonacci_Levels | keyvalue">
-                                        <br> <strong>{{ level.key }}:</strong> {{ level.value }}
+                                        <br> <strong>{{ level.key }}:</strong>{{ formatFibonacciNumber(level.value)  }}
                                     </span>
                                     <br> <em>(Key retracement and extension levels based on historical price movements.
                                         These levels
@@ -249,7 +202,8 @@
                                         consider market
                                         context and risk management.)</em>
                                 </p>
-
+                                
+                                <hr><br><br>
 
                             </div>
 
@@ -257,6 +211,54 @@
 
                         </div>
                     </div>
+                    <div class="row justify-content-center text-center mb-4 mb-md-5">
+                        <div class="col-xl-9 col-xxl-8">
+
+                            <h2 class="display-5">Stock Analysis</h2>
+
+                            <p class="lead">Type in a stock name to get real time analysis on whether to buy/sell/pass.
+                                i.e. 'AAPL'
+                                to lookup information on 'Apple' stocks.</p><br>
+                            <div class="dropdown">
+
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" (click)="selectExchange('US')">US Stock Market (via
+                                            Yahoo
+                                            Finance)</a></li>
+                                    <li><a class="dropdown-item" (click)="selectExchange('CSE')">Colombo Stock
+                                            Exchange</a></li>
+                                </ul>
+                            </div>
+
+                            <input #inputRef class="form-control" type="text" placeholder="Enter Stock Ticker" />
+                            <p style="padding-top:5px;">Current Stock Exchange: {{ selectedExchange }}</p>
+                            <div *ngIf="errorMessage" class="error" style="color: brown;">{{ errorMessage }}<br></div>
+                            <div *ngIf="errorMessage2 != ''" class="error" style="color: brown;">{{ errorMessage2 }}.
+                                Try again with
+                                a valid stock ticker.</div><br>
+                            <button class="btn dropdown-toggle shadow"
+                                style="margin-right:30px; background-color: rgba(208, 212, 214, 0.897);" type="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Select a Stock Exchange
+                            </button>
+                            <button class="btn btn-success shadow" style="background-color: rgba(9, 77, 62, 0.685);"
+                                (click)="getStockAnalysis(inputRef.value, selectedExchange)">Analyze</button>
+
+                            <!-- Small Disclaimer -->
+                            <p class="text-center small disclaimer">
+                                *This app provides stock analysis and predictions for informational purposes only and
+                                does not constitute financial advice. No guarantees are made regarding accuracy,
+                                reliability, or future performance. Users assume full responsibility for their
+                                investment decisions. The developer is not liable for any financial losses, damages, or
+                                actions taken based on the app’s information.
+                            </p>
+
+                        </div>
+                    </div>
+
+
+
+
                 </div>
 
             </section>

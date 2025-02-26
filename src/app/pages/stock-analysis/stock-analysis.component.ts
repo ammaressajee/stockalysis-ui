@@ -18,7 +18,7 @@ export class StockAnalysisComponent {
   stockData: any = null;
   errorMessage: string = '';
   errorMessage2: string = '';
-  stockPrices: any = null;  
+  stockPrices: any = null;
   selectedExchange: string = 'US';
 
   constructor(private stockService: StockAnalysisService, private http: HttpClient, private authService: AuthService) {
@@ -34,12 +34,15 @@ export class StockAnalysisComponent {
       this.errorMessage = 'Please enter a valid stock ticker';
       return;
     }
-    
+
     this.stockService.getStockAnalysis(ticker, exchange).subscribe(
-      
+
       (data) => {
         this.errorMessage2 = '';
         this.stockData = data;
+
+        this.stockData.log.splice(11, 1);
+
         console.log(this.stockData); // Debugging
       },
       (error) => {
@@ -63,6 +66,11 @@ export class StockAnalysisComponent {
       }
     );
 
+  }
+
+  // Function to format numbers with two decimal places
+  formatFibonacciNumber(value: any): string {
+    return value.toFixed(4); // Example: 248.61
   }
 
   ngOnInit(): void {

@@ -10,6 +10,9 @@
 .left-container {
     background-color: rgba(32, 32, 27, 0.63);
 }
+.stock-container{
+    
+}
 
 .disclaimer {
     text-align: center;
@@ -28,22 +31,25 @@ strong{
 em{
     font-weight: 200;
 }
-@media (min-width: 600px) {
+@media (min-width: 876px) {
     .container {
         max-width: 80%;
         /* Adjust width as needed */
         margin: auto;
         /* Centers the container */
+        margin-bottom: 30px;
+        margin-top:30px;
     }
 
     /* Custom styles for small screens */
-}
+ }
 
-@media (min-width: 576px) {
+ @media (max-width: 876px) {
     .container {
-        margin-bottom: 30px;
-        margin-top: 30px;
+        max-width:100%;
+        border-radius: 0%;
     }
+    
 
     /* Custom styles for small screens */
 }
