@@ -29,11 +29,6 @@
                 </ul>
                 <br>
 
-                <input type="number" class="form-control" #inputRefPredictions placeholder="Enter a number" /><br>
-                <button class="btn btn-primary shadow"
-                    (click)="getStockPricePrediction(inputRefPredictions.value)">Predict Stock
-                    Prices</button>
-
             </div>
 
         </div>
@@ -180,6 +175,14 @@
                                 <hr><br><br>
 
                             </div>
+
+                            <p class="display-5">Predict Stock Price</p>
+                            <input type="number" class="form-control" #inputRefPredictions
+                                placeholder="Enter a number" /><br>
+                            <button class="btn btn-primary shadow"
+                                (click)="getStockPricePrediction(inputRefPredictions.value)">Predict Stock
+                                Prices</button><br><hr><br><br><br>
+
                             <div *ngIf="stockPrices" class="container">
                                 <br>
 
