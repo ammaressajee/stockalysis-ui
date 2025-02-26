@@ -57,7 +57,7 @@ export class StockAnalysisComponent {
   scrollToSection() {
     const element = document.getElementById("stock_result");
     if (element) {
-      const offset = 100; // Adjust this value to move slightly above
+      const offset = 60; // Adjust this value to move slightly above
       const elementPosition = element.getBoundingClientRect().top + window.scrollY - offset;
     
       window.scrollTo({

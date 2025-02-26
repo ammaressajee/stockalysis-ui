@@ -20,7 +20,7 @@
             </p>
 
 
-            <div  id="stock_result" *ngIf="stockData">
+            <div *ngIf="stockData">
                 <br><br>
                 <h4>Analysis Log:</h4>
                 <hr>
@@ -34,38 +34,12 @@
                     (click)="getStockPricePrediction(inputRefPredictions.value)">Predict Stock
                     Prices</button>
 
-                <div *ngIf="stockPrices" class="container">
-                    <br>
-
-                    <h2>Stock Price Predictions</h2>
-                    <div class="overflow-x-auto p-4">
-                        <table class="w-full border border-black rounded-lg shadow-md">
-                            <thead class="bg-gray-200 text-black">
-                                <tr>
-                                    <th class="p-3 border border-black">Date</th>
-                                    <th class="p-3 border border-black">Predicted Closing Price ($)</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr *ngFor="let prediction of stockPrices"
-                                    class="border-b border-black hover:bg-gray-100 transition">
-                                    <td class="p-3 border border-black">{{ prediction.Date |
-                                        date:'MM/dd/yyyy' }}</td>
-                                    <td class="p-3 border border-black font-semibold">{{
-                                        prediction.Predicted_Close |
-                                        number:'1.2-2' }}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                </div>
             </div>
 
         </div>
 
         <!-- 2/3rd Width Column -->
-        <div class="col-md-8 right-container text-white">
+        <div id="stock_result" class="col-md-8 right-container text-white">
             <section class="py-5">
                 <div class="container">
                     <div class="stock-container">
@@ -167,7 +141,7 @@
                                 <p>
                                     <strong>Fibonacci Levels:</strong>
                                     <span *ngFor="let level of stockData.Fibonacci_Levels | keyvalue">
-                                        <br> <strong>{{ level.key }}:</strong>{{ formatFibonacciNumber(level.value)  }}
+                                        <br> <strong>{{ level.key }}:</strong>{{ formatFibonacciNumber(level.value) }}
                                     </span>
                                     <br> <em>(Key retracement and extension levels based on historical price movements.
                                         These levels
@@ -202,8 +176,34 @@
                                         consider market
                                         context and risk management.)</em>
                                 </p>
-                                
+
                                 <hr><br><br>
+
+                            </div>
+                            <div *ngIf="stockPrices" class="container">
+                                <br>
+
+                                <h2>Stock Price Predictions</h2>
+                                <div class="overflow-x-auto p-4">
+                                    <table class="w-full border border-black rounded-lg shadow-md">
+                                        <thead class="bg-gray-200 text-black">
+                                            <tr>
+                                                <th class="p-3 border border-black">Date</th>
+                                                <th class="p-3 border border-black">Predicted Closing Price ($)</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let prediction of stockPrices"
+                                                class="border-b border-black hover:bg-gray-100 transition">
+                                                <td class="p-3 border border-black">{{ prediction.Date |
+                                                    date:'MM/dd/yyyy' }}</td>
+                                                <td class="p-3 border border-black font-semibold">{{
+                                                    prediction.Predicted_Close |
+                                                    number:'1.2-2' }}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
 
                             </div>
 
